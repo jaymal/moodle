@@ -48,7 +48,7 @@ session_start();
             <div>
                 <?php
                 $enrolled = $_GET['id'];
-                if ($enrolled != '0') {
+                if ($enrolled !=NULL) {
                     echo $enrolled;
 
                     $conn = new mysqli('localhost', 'root', '', 'moodle');
