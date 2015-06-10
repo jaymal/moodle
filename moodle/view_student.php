@@ -96,7 +96,7 @@ session_start();
                                             echo'<tr><th>Contact No: </th><td>'.$row["contact_no"].'</td></tr>';
                                         
                                     } else {
-                                        echo "There no any course to enrol";
+                                        echo "No data available";
                                     }
                                     mysqli_close($conn);
                                     ?>                         

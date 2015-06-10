@@ -28,7 +28,7 @@ session_start();
                 <nav class="nav nav-tabs nav-justified ">
 
 
-                    
+
             </div>
 
 
@@ -60,29 +60,34 @@ session_start();
                             $servername = "localhost";
                             $username = "root";
                             $password = "";
-                            $dbname = "moodle";                            
+                            $dbname = "moodle";
 
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
-                                
 
-                                    $con = new mysqli($servername, $username, $password, $dbname); // connect in to the database
-                                    if ($con->connect_error) {
-                                        echo 'connecting to database failed';
-                                    }
 
-                                    $sql = "delete from ". $_POST['table'] ." where ". $_POST['column'] ."=". $_POST['value'] ." ";
+                                $con = new mysqli($servername, $username, $password, $dbname); // connect in to the database
+                                if ($con->connect_error) {
+                                    echo 'connecting to database failed';
+                                }
+                                if ($_POST['table'] == 'class') {
+                                     $sql = "delete from enrollment where class_id=" . $_POST['value'] . " ";
+                                      $sql = "delete from " . $_POST['table'] . " where " . $_POST['column'] . "=" . $_POST['value'] . " ";
+                                    
+                                } else {
 
-                                    if ($con->query($sql) === TRUE) {
-                                        echo 'Removing successfull';
-                                    } else {
-                                        echo "Error: " . $sql . "<br>" . $con->error;
-                                    }
 
-                                    $con->close();
-                                
+                                    $sql = "delete from " . $_POST['table'] . " where " . $_POST['column'] . "=" . $_POST['value'] . " ";
+                                }
+                                if ($con->query($sql) === TRUE) {
+                                    echo 'Removing successfull';
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $con->error;
+                                }
+
+                                $con->close();
                             }
                             ?>
 

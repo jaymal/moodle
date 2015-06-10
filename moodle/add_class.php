@@ -27,12 +27,10 @@ session_start();
 
 
                     <ul class="nav nav-pills navFont ">
-                        <li role="presentation" class="label label-default"><a href="home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                        <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
-                        <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
-                        <li role="presentation" class="active label label-default"><a href="course.php"class="navFont">Course</a></li>
-                        <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
-                        <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
+                        <li role="presentation" class="label label-default"><a href="lec_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                        <li role="presentation" class=" active label label-default"><a href="add_class.php" class="navFont">Class</a></li>
+                        <li role="presentation" class="label label-default"><a href="lec_profile.php" class="navFont">Profile</a></li>                        
+                        <li role="presentation" class="label label-default"><a href="#"class="navFont">Contacts</a></li>
 
 
 
@@ -46,13 +44,14 @@ session_start();
 
 
 
-
+            <div class="row">
+                <div class="col-md-6">
 
 
             <aside>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Add New Class</h1>
+                        <h1>New Course</h1>
                         <br>
                     </div>
                     <div class="panel-body">
@@ -61,19 +60,11 @@ session_start();
                         <div>
 
                             <form role="form" action="class_entry.php" method="post">
-                                <table width="400">
-                                    <tr height="50"> 
-                                        <td> Class ID:</td><td> <input type="text" name="id"></td>
-                                    </tr>
-                                    <tr height="50">                                                            
-                                        <td>Date: </td><td><input type="text" name="date"></td>
-                                    </tr>
+                                <table>
+                                   
+                                    
                                     <tr height="50">
-
-                                        <td>Time:</td><td> <input type="text" name="time"></td>
-                                    </tr>
-                                    <tr height="50">
-                                        <td>Course :</td><td>
+                                        <td width="100">Course :</td><td>
                                             <select name="course_id">
 
 
@@ -142,6 +133,16 @@ session_start();
 
                                         </td>
                                     </tr>
+                                     <tr height="50"> 
+                                        <td> Class ID:</td><td> <input type="text" name="id"></td>
+                                    </tr>
+                                    <tr height="50">                                                            
+                                        <td>Date: </td><td><input type="date" name="date"></td>
+                                        <tr height="50">
+
+                                            <td>Time:</td><td> <input type="time"  name="time"></td>
+                                    </tr>
+                                    </tr>
 
 
                                 </table>
@@ -159,6 +160,138 @@ session_start();
                     </div>
                 </div>
             </aside>
+                     </div>
+                
+                 <aside class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1>My Active Courses</h1>
+                        <br>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="80">Class ID</th><th width="80">Course ID</th><th width="180">Name</th>
+                                
+                            </tr>
+                            
+                        </table>
+                       
+                         <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "moodle";
+
+                            //Create connection
+                            $conn = mysqli_connect($servername, $username, $password, $dbname);
+                            //check connection
+                            if (!$conn) {
+
+                                die("Connection failed:" . mysqli_connect_error());
+                            }
+                            $sql = "select class_id,course_id,name from class natural join course WHERE lec_id='".$_SESSION["user"]."'";
+                            
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo'<form role="form" action="delete_row.php" method="post">';
+                                    echo '<table><tr>';
+                                    echo '<input type="hidden" value="add_class.php" name="url">';
+                                    echo '<input type="hidden" value="class" name="table">';
+                                    echo '<input type="hidden" value="class_id" name="column">';
+                                    echo '<input type="hidden" value='.$row["class_id"].' name="value">';                                   
+                                    echo'<td width="80">' .$row["class_id"] . '</td><td width="80">' .$row["course_id"] . '</td><td width="180">' . $row["name"] . '</td>';
+                                    echo '<td><input type="submit" value="Drop" ></td></tr></table></form>';
+                                    
+                                }
+                               
+                            } else {
+                                
+                            }
+                            
+                            mysqli_close($conn);
+                            ?>
+
+                        <div>
+
+
+
+                            
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1>Other Active Courses</h1>
+                        <br>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="100">Class ID</th><th width="100">Course ID</th><th width="200">Name</th><th width="200">Lecturer</th>
+                                
+                            </tr>
+                            
+                        </table>
+                       
+                         <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "moodle";
+
+                            //Create connection
+                            $conn = mysqli_connect($servername, $username, $password, $dbname);
+                            //check connection
+                            if (!$conn) {
+
+                                die("Connection failed:" . mysqli_connect_error());
+                            }
+                            $sql = "select class_id,course_id,course.name as name,lecturer.name as lec_name from course natural join  class join lecturer using(lec_id) where lec_id !='".$_SESSION['user']."'";
+                            
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo'<form role="form" action="delete_row.php" method="post">';
+                                    echo '<table><tr>';                                                                     
+                                    echo'<td width="100">' .$row["class_id"] . '</td><td width="100">' .$row["course_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="200">' . $row["lec_name"] . '</td>';
+                                    echo '</tr></table></form>';
+                                    
+                                }
+                               
+                            } else {
+                                
+                            }
+                            
+                            mysqli_close($conn);
+                            ?>
+
+                        <div>
+
+
+
+                            
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </aside>
+                </div>
 
 
         </div>

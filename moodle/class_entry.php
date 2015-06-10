@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>lecturer</title>
+        <title>new class</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@ session_start();
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <?php $_SESSION["user"] = "120526L"; ?>
+       
 
     </head>
 
@@ -29,12 +29,10 @@ session_start();
 
 
                     <ul class="nav nav-pills navFont ">
-                        <li role="presentation" class="label label-default"><a href="home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                        <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
-                        <li role="presentation" class="active label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
-                        <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
-                        <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
-                        <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
+                        <li role="presentation" class="label label-default"><a href="lec_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                        <li role="presentation" class=" active label label-default"><a href="add_class.php" class="navFont">Class</a></li>
+                        <li role="presentation" class="label label-default"><a href="lec_profile.php" class="navFont">Profile</a></li>                        
+                        <li role="presentation" class="label label-default"><a href="#"class="navFont">Contacts</a></li>
 
 
 
@@ -60,7 +58,7 @@ session_start();
                     <div class="panel-body">
                         <form action="add_class.php">
 
-                            <input type="submit" value="Add New Class">
+                            <input type="submit" value="Take New Course">
                         </form>
 
                         <div>

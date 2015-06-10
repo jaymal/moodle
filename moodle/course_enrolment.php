@@ -13,7 +13,7 @@ session_start();
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <?php $_SESSION["user"] = "120665k"; ?>
+       
 
     </head>
 
@@ -106,7 +106,7 @@ session_start();
                                     echo '<td><input type="submit" value="Enrol" ></td></tr></table></form>';
                                 }
                             } else {
-                                echo "There no any course to enrol";
+                                echo "There are no new courses to enrol";
                             }
                             mysqli_close($conn);
                             ?>
@@ -201,7 +201,7 @@ session_start();
                                 }
                                
                             } else {
-                                echo "There no any course to enrol";
+                                
                             }
                             $sql = "select sum(credit)as total_credit from class natural join course WHERE class_id in (SELECT class_id from enrollment WHERE st_id='" . $_SESSION["user"] . "')";
                             

@@ -92,7 +92,7 @@ session_start();
                         <div class="panel panel-primary">
                             <div class="panel-heading"><h3><h3></div>
                                         <div class="panel-body">
-                                            <p> Student enrollment open now!</p> 
+                                            <p> Student enrolment open now!</p> 
                                         </div>
                                         </div>
                                         </div>
@@ -104,7 +104,7 @@ session_start();
                                         <aside>
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h1>Student Enrollment</h1>
+                                                    <h1>Student Enrolment</h1>
                                                     <br>
                                                     <p>Courses Available</p></div>
                                                 <div class="panel-body">
@@ -113,7 +113,7 @@ session_start();
                                                     <div>
 
                                                         <?php
-                                                        $_SESSION["user"] = "120526L";
+                                                        
                                                         $servername = "localhost";
                                                         $username = "root";
                                                         $password = "";
@@ -160,7 +160,7 @@ session_start();
                                                                 if ($conn->query($sql) === TRUE) {
                                                                     //  echo "Enrollent successfull";
                                                                 } else {
-                                                                    //  echo "Error: " . $sql . "<br>" . $conn->error;
+                                                                      echo "Error: " . $sql . "<br>" . $conn->error;
                                                                 }
 
                                                                 $conn->close();
