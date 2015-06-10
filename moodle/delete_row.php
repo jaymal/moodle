@@ -15,7 +15,7 @@ session_start();
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        
+        <?php $_SESSION["user"] = "120526L"; ?>
 
     </head>
 
@@ -54,13 +54,13 @@ session_start();
             <aside>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Enrol Course </h1>
+                        <h1>remove</h1>
                         <br>
                     </div>
                     <div class="panel-body">
-                        <form action="course_enrolment.php">
+                        <form action="<?php echo $_POST['url']; ?>">
 
-                            <input type="submit" value="Enrol New">
+                            <input type="submit" value="Back">
                         </form>
 
                         <div>
@@ -71,43 +71,29 @@ session_start();
                             $servername = "localhost";
                             $username = "root";
                             $password = "";
-                            $dbname = "moodle";
-
-
-                            $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-                            if (!$conn) {
-
-                                die("Connection failed:" . mysqli_connect_error());
-                            }
-                            $sql = "SELECT sum(credit) as total_credits FROM enrollment natural join class JOIN course USING(course_id) where st_id='" . $_SESSION["user"] . "'";
-                            $result = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            mysqli_close($conn);
+                            $dbname = "moodle";                            
 
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-                               
-                                if ($row['total_credits'] < 25) {
+
+                                
 
                                     $con = new mysqli($servername, $username, $password, $dbname); // connect in to the database
                                     if ($con->connect_error) {
                                         echo 'connecting to database failed';
                                     }
 
-                                    $sql = "INSERT INTO enrollment values('".$_SESSION['user'] ."','". $_POST['class_id'] ."')";
+                                    $sql = "delete from ". $_POST['table'] ." where ". $_POST['column'] ."=". $_POST['value'] ." ";
 
                                     if ($con->query($sql) === TRUE) {
-                                        echo 'Enrolment was successfull';
+                                        echo 'Removing successfull';
                                     } else {
                                         echo "Error: " . $sql . "<br>" . $con->error;
                                     }
 
                                     $con->close();
-                                } else {
-                                    echo 'You have already taken 25 credits. you can not take more than 25 credits ';
-                                }
+                                
                             }
                             ?>
 
@@ -125,6 +111,8 @@ session_start();
     </body>
 
 </html>
+
+
 
 
 
