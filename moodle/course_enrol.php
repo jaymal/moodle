@@ -15,7 +15,7 @@ session_start();
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <?php $_SESSION["user"] = "120526L"; ?>
+        
 
     </head>
 
@@ -54,13 +54,13 @@ session_start();
             <aside>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Add New Course </h1>
+                        <h1>Enrol Course </h1>
                         <br>
                     </div>
                     <div class="panel-body">
-                        <form action="add_class.php">
+                        <form action="course_enrolment.php">
 
-                            <input type="submit" value="Add New Class">
+                            <input type="submit" value="Enrol New">
                         </form>
 
                         <div>
@@ -80,7 +80,7 @@ session_start();
 
                                 die("Connection failed:" . mysqli_connect_error());
                             }
-                            $sql = "SELECT count(lec_id) FROM class where lec_id='" . $_SESSION["user"] . "'";
+                            $sql = "SELECT sum(credit) as total_credits FROM enrollment natural join class JOIN course USING(course_id) where st_id='" . $_SESSION["user"] . "'";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);
                             mysqli_close($conn);
@@ -88,25 +88,25 @@ session_start();
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
-                                if ($row['count(lec_id)'] < 3) {
+                                echo $_POST['class_id'];
+                                if ($row['total_credits'] < 25) {
 
                                     $con = new mysqli($servername, $username, $password, $dbname); // connect in to the database
                                     if ($con->connect_error) {
                                         echo 'connecting to database failed';
                                     }
 
-                                    $sql = "INSERT INTO class values('" . $_POST['id'] . "','" . $_POST['time'] . "','" . $_SESSION["user"] . "','" . $_POST['course_id'] . "','" . $_POST['building'] . "','" . $_POST['date'] . "')";
+                                    $sql = "INSERT INTO enrollment values('".$_SESSION['user'] ."','". $_POST['class_id'] ."')";
 
                                     if ($con->query($sql) === TRUE) {
-                                        echo 'Class was added successfully in to the system';
+                                        echo 'Enrolment was successfull';
                                     } else {
                                         echo "Error: " . $sql . "<br>" . $con->error;
                                     }
 
                                     $con->close();
                                 } else {
-                                    echo 'You cannot take more than 3 classes';
+                                    echo 'You have already taken 25 credits. you can not take more than 25 credits ';
                                 }
                             }
                             ?>
