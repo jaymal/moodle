@@ -26,14 +26,12 @@ session_start();
                 <nav class="nav nav-tabs nav-justified ">
 
 
-                    <ul class="nav nav-pills navFont ">
-                        <li role="presentation" class="label label-default"><a href="home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                        <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
-                        <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
-                        <li role="presentation" class="active label label-default"><a href="course.php"class="navFont">Course</a></li>
-                        <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
-                        <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
-
+                     <ul class="nav nav-pills navFont ">
+                        <li role="presentation" class="label label-default"><a href="students.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                        <li role="presentation" class="active label label-default"><a href="course_enrolment.php" class="navFont">Enrolment</a></li>
+                        <li role="presentation" class="label label-default"><a href="view_student.php" class="navFont">Profile</a></li>                        
+                        <li role="presentation" class="label label-default"><a href="#"class="navFont">Contacts</a></li>
+                       
 
 
 
