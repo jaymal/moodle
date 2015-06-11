@@ -33,7 +33,7 @@ session_start();
                         <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
                         <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
                         <li role="presentation" class="active label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
-                        
+
 
 
 
@@ -69,14 +69,14 @@ session_start();
                                     <tr height="50">                                                            
                                         <td>Name: </td><td><input type="text" name="name"></td>
                                     </tr>
-                                   
-                                    
-                                   
+
+
+
 
                                 </table>
-                                
-                                    <input type="submit" value="submit" class="floatright">
-                                
+
+                                <input type="submit" value="submit" class="floatright">
+
                             </form>
 
 
@@ -88,6 +88,97 @@ session_start();
                     </div>
                 </div>
             </aside>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1>Building</h1>
+                    <br>
+                </div>
+                <div class="panel-body">
+
+
+                    <div>
+
+                        <table>
+
+                            <tr height="50">
+
+                                <th width="200">Id</th>
+                                <th width="200">Name</th>
+                               
+
+
+
+
+                            </tr>
+
+                        </table>
+
+
+
+
+
+
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "moodle";
+
+                        //Create connection
+                        $conn = mysqli_connect($servername, $username, $password, $dbname);
+                        //check connection
+                        if (!$conn) {
+
+                            die("Connection failed:" . mysqli_connect_error());
+                        }
+                        $sql = "select * from building";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo'<form role="form" action="delete_row.php" method="post">';
+                                echo '<table><tr>';
+                                echo '<input type="hidden" value="building_reg.php" name="url">';
+                                echo '<input type="hidden" value="building" name="table">';
+                                echo '<input type="hidden" value="id" name="column">';
+                                echo '<input type="hidden" value=' . $row["id"] . ' name="value">';
+                                echo'<td width="200">' . $row["id"] .  '</td><td width="200">' . $row["name"] . '</td>';
+                                echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
+                            }
+                        } else {
+                            
+                        }
+
+                        mysqli_close($conn);
+                        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </form>
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
 
 
         </div>
