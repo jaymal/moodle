@@ -68,12 +68,44 @@ session_start();
                                     <tr height="50">                                                            
                                         <td>Name: </td><td><input type="text" name="name"></td>
                                     </tr>
+                                    <!---->
                                     <tr height="50">
+                                        <td>Building:</td>
+                                        <td>
+                                            <select name="department">
 
-                                        <td>Building ID:</td><td> <input type="text" name="building"></td>
+
+                                                <?php
+                                                $servername = "localhost";
+                                                $username = "root";
+                                                $password ="";
+                                                $dbname = "moodle";
+
+                                                //Create connection
+                                                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                                //check connection
+                                                if (!$conn) {
+
+                                                    die("Connection failed:" . mysqli_connect_error());
+                                                }
+                                                $sql = "SELECT * FROM building";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                if (mysqli_num_rows($result) > 0) {
+
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo' <option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+                                                    }
+                                                } else {
+                                                    echo "0 results";
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
+                                            </select>
+
+                                        </td>
                                     </tr>
-                                    
-                                   
+                                    <!---->
 
                                 </table>
                                 

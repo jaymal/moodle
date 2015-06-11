@@ -72,10 +72,44 @@ session_start();
 
                                         <td>Credit:</td><td> <input type="text" name="credit"></td>
                                     </tr>
+                                    <!--->
                                     <tr height="50">
-                                        <td>Department ID:</td><td><input type="text" name="dept_id"></td>
+                                        <td>Department:</td>
+                                        <td>
+                                            <select name="department">
+
+
+                                                <?php
+                                                $servername = "localhost";
+                                                $username = "root";
+                                                $password ="";
+                                                $dbname = "moodle";
+
+                                                //Create connection
+                                                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                                //check connection
+                                                if (!$conn) {
+
+                                                    die("Connection failed:" . mysqli_connect_error());
+                                                }
+                                                $sql = "SELECT * FROM department";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                if (mysqli_num_rows($result) > 0) {
+
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo' <option value="' . $row["dept_id"] . '">' . $row["dept_name"] . '</option>';
+                                                    }
+                                                } else {
+                                                    echo "0 results";
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
+                                            </select>
+
+                                        </td>
                                     </tr>
-                                    
+                                    <!--->
 
                                 </table>
                                 
