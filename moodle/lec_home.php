@@ -12,7 +12,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/mystyle.css"> 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <?php $_SESSION["user"] = "120526L"; ?>
+        
 
 
     </head>

@@ -72,7 +72,7 @@ session_start();
                                     <tr height="50">
                                         <td>Building:</td>
                                         <td>
-                                            <select name="department">
+                                            <select name="building">
 
 
                                                 <?php

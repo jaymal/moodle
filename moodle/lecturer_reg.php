@@ -72,6 +72,10 @@ session_start();
 
                                         <td>Contact Number:</td><td> <input type="text" name="phone"></td>
                                     </tr>
+                                     <tr height="50">
+
+                                         <td>Email:</td><td> <input type="email" name="email"></td>
+                                    </tr>
                                     <tr height="50">
                                         <td>House Number:</td><td><input type="text" name="num"></td>
                                     </tr>
@@ -89,7 +93,7 @@ session_start();
                                     <tr height="50">
                                         <td>Department:</td>
                                         <td>
-                                            <select name="department">
+                                            <select name="dept_id">
 
 
                                                 <?php

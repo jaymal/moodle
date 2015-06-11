@@ -58,7 +58,7 @@ session_start();
                     <div class="panel-body">
                         <form action="course.php">
                             
-                            <input type="submit" value="Add New Lecturer">
+                            <input type="submit" value="Add New Course">
                         </form>
 
                         <div>

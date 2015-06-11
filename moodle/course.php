@@ -72,11 +72,11 @@ session_start();
 
                                         <td>Credit:</td><td> <input type="text" name="credit"></td>
                                     </tr>
-                                    <!--->
+                                    
                                     <tr height="50">
                                         <td>Department:</td>
                                         <td>
-                                            <select name="department">
+                                            <select name="dept_id">
 
 
                                                 <?php

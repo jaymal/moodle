@@ -70,7 +70,7 @@ session_start();
                                     </tr>
                                     <tr height="50">
 
-                                        <td>E-Mail:</td><td> <input type="email" name="mail"></td>
+                                        <td>Email :</td><td> <input type="email" name="mail"></td>
                                     </tr>
                                     <tr height="50">
                                         <td>Contact Number:</td><td><input type="text" name="phone"></td>
@@ -87,7 +87,7 @@ session_start();
                                     <tr height="50">
                                         <td>Department:</td>
                                         <td>
-                                            <select name="department">
+                                            <select name="dept_id">
 
 
                                                 <?php
