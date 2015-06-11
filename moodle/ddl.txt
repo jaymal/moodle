@@ -1,0 +1,88 @@
+create table building(
+  id	varchar(30),
+  name  varchar(50),
+  primary key(id) 
+);
+
+create table department(
+  dept_id		varchar(30),
+  dept_name		varchar(50),
+  building		varchar(30),	
+  primary key(dept_id),
+  foreign key (building) references building(id)
+
+);
+
+
+create table course(
+   course_id  varchar(20),
+   name 	  varchar(50),
+   credit     numeric(4,1) check(credit>0),   
+   dept_id varchar(30),
+   primary key(course_id),
+   foreign key (dept_id) references department(dept_id)
+   ON DELETE SET NULL
+   
+);
+
+
+
+
+create table lecturer(
+  lec_id		varchar(20),
+  name			varchar(50),
+  contact_no    varchar(30),
+  house_no		varchar(30),
+  Street		varchar(50),
+  city			varchar(50),
+  password      varchar(50),
+  dept_id    varchar(30),
+  
+  foreign key (dept_id) references department(dept_id),
+  primary key(lec_id)
+
+
+);
+
+create table student(
+  st_id		    varchar(20),
+  name		    varchar(50),
+  email             varchar(50),
+  contact_no    varchar(30),
+  birthday	    varchar(30),
+  nic		    varchar(30),
+  dept_id    varchar(30),
+  password      varchar(30),
+  
+  foreign key (dept_id) references department(dept_id),  
+  primary key(st_id)
+
+
+);
+
+
+
+create table class(
+  class_id		varchar(30),
+  start_time 	varchar(50),  
+  lec_id		varchar(20),
+  course_id     varchar(20),
+  building		varchar(30),
+  date           vatchar(50),
+  
+  primary key(class_id), 
+  foreign key (course_id) references course(course_id),
+  foreign key (lec_id) references lecturer(lec_id),
+  foreign key (building) references building(id)
+);
+create table enrollment(
+  st_id		varchar(20),
+  class_id	varchar(30),
+  
+  foreign key (st_id) references student(st_id),
+  foreign key (class_id) references class(class_id)
+  ON DELETE SET NULL
+);
+
+
+
