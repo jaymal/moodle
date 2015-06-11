@@ -42,10 +42,10 @@
                 $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '".$id."'");
                 $row_st = mysqli_fetch_array($query_st, MYSQLI_ASSOC) or die("Can not receive the data from the database");
                 if($row_st['password'] == $pwd){
-                    $_SESSION['st_id'] = $row_st['st_id'];
+                    $_SESSION['user'] = $row_st['st_id'];
                     echo "Access granted.";
                     // redirecting to the relevant page
-                    header("Location: index.php");
+                    header("Location: students.php");
                     exit();
                 }
             }
@@ -53,10 +53,10 @@
                 $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '".$id."'");
                 $row_lec = mysqli_fetch_array($query_lec, MYSQLI_ASSOC) or die("Can not receive the data from the database");;
                 if($row_lec['password'] == $pwd){
-                    $_SESSION['lec_id'] = $row_st['lec_id'];
+                    $_SESSION['user'] = $row_st['lec_id'];
                     echo "Access granted.";
                     // redirecting to the relevant page
-                    header("Location: view_lecturer.php");
+                    header("Location: lec_home.php");
                     exit();
                 }
             }

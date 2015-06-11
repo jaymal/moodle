@@ -15,7 +15,7 @@ session_start();
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <?php $_SESSION["user"] = "120526L"; ?>
+        
 
     </head>
 
@@ -72,8 +72,10 @@ session_start();
                                 if ($con->connect_error) {
                                     echo 'connecting to database failed';
                                 }
-                                if ($_POST['table'] == 'class') {
+                                if (!strcmp($_POST['table'], 'class')) {
+                                    
                                      $sql = "delete from enrollment where class_id=" . $_POST['value'] . " ";
+                                     $con->query($sql);
                                       $sql = "delete from " . $_POST['table'] . " where " . $_POST['column'] . "=" . $_POST['value'] . " ";
                                     
                                 } else {
