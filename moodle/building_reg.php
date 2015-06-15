@@ -64,10 +64,10 @@ session_start();
                             <form role="form" action="building_reg_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Building ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Building ID:</td><td> <input type="text" required="required" maxlength="2" placeholder="eg:26" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Name: </td><td><input type="text" required="required" maxlength="30" placeholder="eg:Sumanadasa" name="name"></td>
                                     </tr>
 
 
