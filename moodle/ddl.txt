@@ -9,7 +9,7 @@ create table department(
   dept_name		varchar(50),
   building		varchar(30),	
   primary key(dept_id),
-  foreign key (building) references building(id)
+  foreign key (building) references building(id) ON DELETE CASCADE
 
 );
 create table admin(
@@ -31,8 +31,7 @@ create table course(
    credit     numeric(4,1) check(credit>0),   
    dept_id varchar(30),
    primary key(course_id),
-   foreign key (dept_id) references department(dept_id)
-   ON DELETE SET NULL
+   foreign key (dept_id) references department(dept_id) ON DELETE CASCADE
    
 );
 
@@ -49,7 +48,7 @@ create table lecturer(
   password      varchar(50),
   dept_id    varchar(30),
   
-  foreign key (dept_id) references department(dept_id),
+  foreign key (dept_id) references department(dept_id) ON DELETE CASCADE,
   primary key(lec_id)
 
 
@@ -65,7 +64,7 @@ create table student(
   dept_id    varchar(30),
   password      varchar(30),
   
-  foreign key (dept_id) references department(dept_id),  
+  foreign key (dept_id) references department(dept_id) ON DELETE CASCADE,  
   primary key(st_id)
 
 
@@ -79,12 +78,12 @@ create table class(
   lec_id		varchar(20),
   course_id     varchar(20),
   building		varchar(30),
-  date           vatchar(50),
+  date          varchar(50),
   
   primary key(class_id), 
-  foreign key (course_id) references course(course_id),
-  foreign key (lec_id) references lecturer(lec_id),
-  foreign key (building) references building(id)
+  foreign key (course_id) references course(course_id) ON DELETE CASCADE,
+  foreign key (lec_id) references lecturer(lec_id) ON DELETE CASCADE,
+  foreign key (building) references building(id) ON DELETE CASCADE
 );
 create table enrollment(
   st_id		varchar(20),
@@ -92,8 +91,7 @@ create table enrollment(
   
   foreign key (st_id) references student(st_id),
   foreign key (class_id) references class(class_id)
-  ON DELETE SET NULL
+  ON DELETE CASCADE
 );
-
 
 
