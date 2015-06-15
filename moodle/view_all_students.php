@@ -6,6 +6,10 @@
  -->
 
 <?php
+session_start();
+if (strcmp($_SESSION["access"], "admin") != 0) {
+    Header("Location: login.php");
+}
 //  Information to connect to the database
 $server = 'localhost';
 $username = 'root';
