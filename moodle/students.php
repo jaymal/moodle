@@ -1,6 +1,10 @@
 <?php
 session_start();
+if (strcmp($_SESSION["access"], "student") != 0) {
+    Header("Location: login.php");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -12,7 +16,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/mystyle.css"> 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        
+
 
 
     </head>
@@ -113,7 +117,6 @@ session_start();
                                                     <div>
 
                                                         <?php
-                                                        
                                                         $servername = "localhost";
                                                         $username = "root";
                                                         $password = "";
@@ -146,26 +149,26 @@ session_start();
                                                         mysqli_close($conn);
                                                         ?>
                                                         <div>
-                                                            <?php
-                                                            $enrolled = $_GET['id'];
-                                                            if ($enrolled != NULL) {
-                                                                //echo $enrolled;
+                                                        <?php
+                                                        $enrolled = $_GET['id'];
+                                                        if ($enrolled != NULL) {
+                                                            //echo $enrolled;
 
-                                                                $conn = new mysqli('localhost', 'root', '', 'moodle');
-                                                                if ($conn->connect_error) {
-                                                                    die("Connection failed: " . $conn->connect_error);
-                                                                }
-                                                                $sql = "INSERT INTO enrollment (course_id,student_id)VALUES (" . $enrolled . ",'" . $_SESSION["user"] . "')";
-
-                                                                if ($conn->query($sql) === TRUE) {
-                                                                    //  echo "Enrollent successfull";
-                                                                } else {
-                                                                      echo "Error: " . $sql . "<br>" . $conn->error;
-                                                                }
-
-                                                                $conn->close();
+                                                            $conn = new mysqli('localhost', 'root', '', 'moodle');
+                                                            if ($conn->connect_error) {
+                                                                die("Connection failed: " . $conn->connect_error);
                                                             }
-                                                            ?>
+                                                            $sql = "INSERT INTO enrollment (course_id,student_id)VALUES (" . $enrolled . ",'" . $_SESSION["user"] . "')";
+
+                                                            if ($conn->query($sql) === TRUE) {
+                                                                //  echo "Enrollent successfull";
+                                                            } else {
+                                                                echo "Error: " . $sql . "<br>" . $conn->error;
+                                                            }
+
+                                                            $conn->close();
+                                                        }
+                                                        ?>
                                                         </div>
                                                     </div>
 

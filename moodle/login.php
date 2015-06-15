@@ -41,6 +41,7 @@ function getPassword($id, $pwd) {
             $row_st = mysqli_fetch_array($query_st, MYSQLI_ASSOC) or die("Can not receive the data from the database");
             if ($row_st['password'] == $pwd) {
                 $_SESSION['user'] = $row_st['st_id'];
+                $_SESSION['access']="student";
                 echo "Access granted.";
                 // redirecting to the relevant page
                 ?><script>location.replace("students.php");</script><?php
@@ -54,6 +55,7 @@ function getPassword($id, $pwd) {
             ;
             if ($row_lec['password'] == $pwd) {
                 $_SESSION['user'] = $row_lec['lec_id'];
+                 $_SESSION['access']="lecturer";
                 echo "Access granted.";
                 // redirecting to the relevant page
                 ?><script>location.replace("lec_home.php");</script><?php
@@ -66,6 +68,7 @@ function getPassword($id, $pwd) {
             $row_admin = mysqli_fetch_array($query_admin, MYSQLI_ASSOC) or die("Can not receive the data from the database");
             if ($row_admin['password'] == $pwd) {
                 $_SESSION['user'] = $row_admin['user_name'];
+                 $_SESSION['access']="admin";
                 echo "Access granted.";
                 // redirecting to the relevant page
                 ?><script>location.replace("admin_home.php");</script><?php
