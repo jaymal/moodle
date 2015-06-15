@@ -1,10 +1,11 @@
+
 <?php
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>all_lec</title>
+        <title>all_course</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,9 +56,9 @@ session_start();
                             <div class="panel-body" >
 
                                 <div><table>
-                                          <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_courses.php'"  width="500" value='View All Courses'></td></tr>
+                                         <tr height="80"><td width="300"> <input class="btn btn-primary" type=button  onClick="location.href = 'view_all_courses.php'"  width="500" value='View All Courses'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_students.php'"  width="500" value='View All Students'></td></tr>
-                                        <tr height="80"><td width="300"> <input class="btn btn-primary" type=button  onClick="location.href = '#'"  width="500" value='View All Lecrurers'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'all_lec.php'"  width="500" value='View All Lecrurers'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_student.php'"  width="500" value='Find Student'></td></tr>
 
@@ -130,10 +131,8 @@ session_start();
 
                                         <th width="100">Id</th>
                                         <th width="200">Name</th>
-                                        <th width="100">Contact Number</th>
-                                        <th width="200">Email</th>
-                                        <th width="100">Department</th>
-                                        <th width="300">Address</th>
+                                        <th width="100">Credits</th>
+                                        
 
 
 
@@ -160,7 +159,7 @@ session_start();
 
                                     die("Connection failed:" . mysqli_connect_error());
                                 }
-                                $sql = "select * from lecturer,department where department=dept_id";
+                                $sql = "select * from course";
 
                                 $result = mysqli_query($conn, $sql);
 
@@ -169,11 +168,11 @@ session_start();
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo'<form role="form" action="delete_row.php" method="post">';
                                         echo '<table><tr>';
-                                        echo '<input type="hidden" value="all_lec.php" name="url">';
-                                        echo '<input type="hidden" value="lecturer" name="table">';
-                                        echo '<input type="hidden" value="lec_id" name="column">';
-                                        echo '<input type="hidden" value=' . $row["lec_id"] . ' name="value">';
-                                        echo'<td width="100">' . $row["lec_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["contact_no"] . '</td><td width="200">' . $row["email"] . '</td><td width="100">' . $row["dept_name"] . '</td><td width="350">' . $row["house_no"] . ', ' . $row["Street"] . ', ' . $row["city"] . '</td>';
+                                        echo '<input type="hidden" value="view_all_courses.php" name="url">';
+                                        echo '<input type="hidden" value="course" name="table">';
+                                        echo '<input type="hidden" value="course_id" name="column">';
+                                        echo '<input type="hidden" value=' . $row["course_id"] . ' name="value">';
+                                        echo'<td width="100">' . $row["course_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["credit"] .'</td>';
                                         echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
                                     }
                                 } else {
