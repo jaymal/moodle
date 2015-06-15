@@ -112,7 +112,7 @@ session_start();
                                         
                                                 <div class="panel panel-primary">
                                                     <div class="panel-heading">
-                                                        <h1>Student Enrolment</h1>
+                                                        <h1>My Courses</h1>
 
                                                     </div>      
                                                     <div class="panel-body">

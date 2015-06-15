@@ -81,7 +81,7 @@ session_start();
                                     echo 'connecting to database failed';
                                 }
 
-                                $sql = "INSERT INTO student values('".$_POST['id']."','" . $_POST['name'] . "','" . $_POST['mail'] . "','" . $_POST['phone'] . "','" . $_POST['birthday'] . "','" . $_POST['nic'] . "','" . $_POST['dept_id'] . "','" . $_POST['pw'] . "')";
+                                $sql = "INSERT INTO student values('".$_POST['id']."','" . $_POST['name'] . "','" . $_POST['mail'] . "','" . $_POST['phone'] . "','" . $_POST['birthday'] . "','" . $_POST['nic'] . "','" . $_POST['dept_id'] . "','" . crypt($_POST['pw'],$_POST['id']) . "')";
                                 
                                 if ($con->query($sql) === TRUE) {
                                     echo 'Student was added successfully in to the system';

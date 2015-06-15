@@ -98,18 +98,11 @@ function getPassword($id, $pwd) {
         <div class="container">
             <!---->
             <!-- slider -->
-            <div style=" margin-top:5px; margin-bottom:5px ">
-                <nav class="nav nav-tabs nav-justified ">
-                    <ul class="nav nav-pills navFont ">
-                        <li role="presentation" class="active label label-default"><a href="students.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                        <li role="presentation" class="label label-default"><a href="course_enrolment.php" class="navFont">Enrolment</a></li>
-                        <li role="presentation" class="label label-default"><a href="view_student.php" class="navFont">Profile</a></li>
-                        <li role="presentation" class="label label-default"><a href="#"class="navFont">Contacts</a></li>
-                    </ul>
-            </div>
+           
 
             <div class="row">
                 <div class="col-md-8">
+                     <br><br><br><br>
                     <div id="slide"  class="carousel slide" >
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
@@ -152,7 +145,7 @@ function getPassword($id, $pwd) {
 
                 <div class="col-md-4   ">
                     <div class="col-md-12">
-                        <br><br><br><br>
+                        <br><br><br><br> <br><br><br><br>
                     </div>
                     <div class="col-md-12">
                         <div class="rightnav">
@@ -193,11 +186,11 @@ function getPassword($id, $pwd) {
 
                                                     //echo crypt($pwd,$id);
                                                     // Calls the getPassword function
-                                                    getPassword($id, $pwd);
+                                                    //getPassword($id, $pwd);
 
-                                                    /*
-                                                     * getPassword($id, crypt($pwd,$id));
-                                                     */
+                                                    
+                                                     getPassword($id, crypt($pwd,$id));
+                                                     
                                                 }
                                                 ?>
                                             </div>
