@@ -1,7 +1,9 @@
 
-
 <?php
 session_start();
+if (strcmp($_SESSION["access"], "lecturer") != 0) {
+    Header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

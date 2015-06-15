@@ -8,6 +8,10 @@
 
 <?php
     //  Information to connect to the database
+    session_start();
+    if (strcmp($_SESSION["access"], "admin") != 0) {
+    Header("Location: login.php");
+}
     $server = 'localhost';
     $username = 'root';
     $password = '';

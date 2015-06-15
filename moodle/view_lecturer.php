@@ -11,6 +11,10 @@ $server = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'moodle';
+session_start();
+if (strcmp($_SESSION["access"], "admin") != 0) {
+    Header("Location: login.php");
+}
 
 //  Creates a connection to the database
 $conn = new mysqli($server, $username, $password, $database);

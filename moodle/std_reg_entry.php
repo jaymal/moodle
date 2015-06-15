@@ -1,7 +1,12 @@
 
 
 <?php
+
 session_start();
+if (strcmp($_SESSION["access"], "admin") != 0) {
+    Header("Location: login.php");
+}
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
