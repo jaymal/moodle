@@ -63,31 +63,31 @@ session_start();
                             <form role="form" action="lec_reg_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Lecturer ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Lecturer ID:</td><td> <input type="text" maxlength="5"  required="required" placeholder="eg:1210x" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Name: </td><td><input type="text" maxlength="50"  required="required" placeholder="eg:Gihan Dias" name="name"></td>
                                     </tr>
                                     <tr height="50">
 
-                                        <td>Contact Number:</td><td> <input type="text" name="phone"></td>
+                                        <td>Contact Number:</td><td> <input type="text" maxlength="10"  required="required" placeholder="eg:0711234567" name="phone"></td>
                                     </tr>
                                      <tr height="50">
 
-                                         <td>Email:</td><td> <input type="email" name="email"></td>
+                                         <td>Email:</td><td> <input type="email" maxlength="50"  required="required" placeholder="eg:gihan@gmail.com" name="email"></td>
                                     </tr>
                                     <tr height="50">
-                                        <td>House Number:</td><td><input type="text" name="num"></td>
+                                        <td>House Number:</td><td><input type="text" maxlength="10"  required="required" placeholder="eg:No.01" name="num"></td>
                                     </tr>
                                     <tr height="50">
-                                        <td>Street:</td><td><input type="text" name="street"></td>
+                                        <td>Street:</td><td><input type="text" maxlength="30"  required="required" placeholder="eg:Mira Road" name="street"></td>
                                     </tr>
                                     <tr height="50">
 
-                                        <td>City:</td><td><input type="text" name="city"></td>
+                                        <td>City:</td><td><input type="text" maxlength="20"  required="required" placeholder="eg:Wellawaththa" name="city"></td>
                                     </tr>
                                     <tr height="50">
-                                        <td> Password:</td><td><input type="password" name="pw"></td>
+                                        <td> Password:</td><td><input type="password" maxlength="30"  required="required" placeholder="password" name="pw"></td>
                                     </tr>
                                     <!---->
                                     <tr height="50">

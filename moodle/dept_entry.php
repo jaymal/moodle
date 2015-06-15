@@ -63,10 +63,10 @@ session_start();
                             <form role="form" action="dept_reg_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Department ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Department ID:</td><td> <input type="text" maxlength="2"  required="required" placeholder="eg:05" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Name: </td><td><input type="text" maxlength="50"  required="required" placeholder="eg:Computer Science & Engineering" name="name"></td>
                                     </tr>
                                     <!---->
                                     <tr height="50">
