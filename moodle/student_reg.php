@@ -63,24 +63,24 @@ session_start();
                             <form role="form" action="std_reg_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Student ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Student ID:</td><td> <input type="text" maxlength="7"  required="required" placeholder="eg:120734x" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Name: </td><td><input type="text" maxlength="50"  required="required" placeholder="eg:Pavindu Chathuranga" name="name"></td>
                                     </tr>
                                     <tr height="50">
 
-                                        <td>Email :</td><td> <input type="email" name="mail"></td>
+                                        <td>Email :</td><td> <input type="email" maxlength="50"  required="required" placeholder="eg:pavi@gmail.com" name="mail"></td>
                                     </tr>
                                     <tr height="50">
-                                        <td>Contact Number:</td><td><input type="text" name="phone"></td>
+                                        <td>Contact Number:</td><td><input type="text" maxlength="10"  required="required" placeholder="eg:0711234532" name="phone"></td>
                                     </tr>
                                     <tr height="50">
-                                        <td>Birthday:</td><td><input type="text" name="birthday" placeholder="yy/mm/dd"></td>
+                                        <td>Birthday:</td><td><input type="text" name="birthday" maxlength="10"  required="required"  placeholder="yyyy/mm/dd"></td>
                                     </tr>
                                     <tr height="50">
 
-                                        <td>NIC:</td><td><input type="text" name="nic"></td>
+                                        <td>NIC:</td><td><input type="text" maxlength="10"  required="required" placeholder="eg:911670577v" name="nic"></td>
                                     </tr>
 
                                          <!---->
@@ -123,7 +123,7 @@ session_start();
                                          <!---->
 
                                     <tr height="50">
-                                        <td> Password:</td><td><input type="password" name="pw"></td>
+                                        <td> Password:</td><td><input type="password" maxlength="30"  required="required" placeholder="password" name="pw"></td>
                                     </tr>
                                    
 
