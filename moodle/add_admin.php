@@ -128,9 +128,10 @@ session_start();
 
                             <tr height="50">
 
-                                <th width="200">Id</th>
+                                <th width="200">User Name</th>
                                 <th width="200">Name</th>
-                                <th width="200">Building</th>
+                                <th width="200">Email</th>
+                                <th width="200">Contact No</th>
 
 
 
@@ -156,7 +157,10 @@ session_start();
                         }
                         $sql = "select status from admin where user_name='".$_SESSION["user"]."'";
                         $result = mysqli_query($conn, $sql);
-                        if () {
+                        $row = mysqli_fetch_assoc($result);
+                        if (strcmp($row["status"],"power")==0) {
+                            
+                        
                        
 
                         //Create connection
@@ -171,11 +175,11 @@ session_start();
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo'<form role="form" action="delete_row.php" method="post">';
                                 echo '<table><tr>';
-                                echo '<input type="hidden" value="dept_entry.php" name="url">';
-                                echo '<input type="hidden" value="department" name="table">';
-                                echo '<input type="hidden" value="dept_id" name="column">';
-                                echo '<input type="hidden" value=' . $row["dept_id"] . ' name="value">';
-                                echo'<td width="200">' . $row["dept_id"] . '</td><td width="200">' . $row["dept_name"] . '</td><td width="200">' . $row["name"] . '</td>';
+                                echo '<input type="hidden" value="add_admin.php" name="url">';
+                                echo '<input type="hidden" value="admin" name="table">';
+                                echo '<input type="hidden" value="user_name" name="column">';
+                                echo '<input type="hidden" value=' . $row["user_name"] . ' name="value">';
+                                echo'<td width="200">' . $row["user_name"] . '</td><td width="200">' . $row["name"] . '</td><td width="200">'. $row["email"] . '</td><td width="200">' . $row["Contact_no"] . '</td>';
                                 echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
                             }
                         } else {
@@ -183,6 +187,8 @@ session_start();
                         }
 
                         mysqli_close($conn);
+                        }  else {
+                            echo 'You does not have permission to view this content';
                         }
                         ?>
 

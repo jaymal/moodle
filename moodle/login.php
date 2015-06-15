@@ -6,90 +6,81 @@
 -->
 
 <?php
-    // Start a session for the user login
-    session_start();
+// Start a session for the user login
+session_start();
 
-    define('DB_NAME', 'moodle');
-    define('DB_SERVER', 'localhost');
-    define('DB_USERNAME', 'root');
-    define('DB_PASSWORD', '');
+define('DB_NAME', 'moodle');
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
 
+function getPassword($id, $pwd) {
 
-    function getPassword($id, $pwd){
+    if (!empty($id) AND ! empty($pwd)) {
 
-        if(!empty($id) AND !empty($pwd)){
+        // The string to establish the connection
+        $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD) or die("Failed to connect to the database. Error code:1");
+        // Select the database
+        $db = mysqli_select_db($con, DB_NAME) or die("Failed to connect to the database. Error code:2");
 
-            // The string to establish the connection
-            $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD) or die("Failed to connect to the database. Error code:1");
-            // Select the database
-            $db = mysqli_select_db($con, DB_NAME) or die("Failed to connect to the database. Error code:2");
+        // The query to get the data from the database
+        $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '" . $id . "'");
 
-            // The query to get the data from the database
-            $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '".$id."'");
+        // The query to get the data from the database
+        $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '" . $id . "'");
 
-            // The query to get the data from the database
-            $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '".$id."'");
+        // The query to get the data from the database
+        $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '" . $id . "'");
 
-            // The query to get the data from the database
-            $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '".$id."'");
-
-            /*
-             * Checks whether the 'password' index of the returned array is non-empty and
-             * whether it is similar to the password entered by the user
-            */
-            if(mysqli_fetch_array($query_st, MYSQLI_ASSOC)){
-                $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '".$id."'");
-                $row_st = mysqli_fetch_array($query_st, MYSQLI_ASSOC) or die("Can not receive the data from the database");
-                if($row_st['password'] == $pwd){
-                    $_SESSION['user'] = $row_st['st_id'];
-                    echo "Access granted.";
-                    // redirecting to the relevant page
-                    ?><script>location.replace("students.php");</script><?php
-                    exit();
-                }
-                else{
-                    echo 'Invalid username and password';
-                }
-            }
-            elseif(mysqli_fetch_array($query_lec, MYSQLI_ASSOC)){
-                $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '".$id."'");
-                $row_lec = mysqli_fetch_array($query_lec, MYSQLI_ASSOC) or die("Can not receive the data from the database");;
-                if($row_lec['password'] == $pwd){
-                    $_SESSION['user'] = $row_lec['lec_id'];
-                    echo "Access granted.";
-                    // redirecting to the relevant page
-                    ?><script>location.replace("lec_home.php");</script><?php
-                    exit();
-                }
-                else{
-                    echo 'Invalid username and password';
-                }
-            }
-            elseif(mysqli_fetch_array($query_admin, MYSQLI_ASSOC)){
-                $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '".$id."'");
-                $row_admin = mysqli_fetch_array($query_admin, MYSQLI_ASSOC) or die("Can not receive the data from the database");
-                if($row_admin['password'] == $pwd){
-                    $_SESSION['user'] = $row_admin['user_name'];
-                    echo "Access granted.";
-                    // redirecting to the relevant page
-                    ?><script>location.replace("admin_home.php");</script><?php
-                    exit();
-                }
-                else{
-                    echo 'Invalid username and password';
-                }
-            }
-
-            else{
+        /*
+         * Checks whether the 'password' index of the returned array is non-empty and
+         * whether it is similar to the password entered by the user
+         */
+        if (mysqli_fetch_array($query_st, MYSQLI_ASSOC)) {
+            $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '" . $id . "'");
+            $row_st = mysqli_fetch_array($query_st, MYSQLI_ASSOC) or die("Can not receive the data from the database");
+            if ($row_st['password'] == $pwd) {
+                $_SESSION['user'] = $row_st['st_id'];
+                echo "Access granted.";
+                // redirecting to the relevant page
+                ?><script>location.replace("students.php");</script><?php
+                exit();
+            } else {
                 echo "<script type='text/javascript'>alert('Password and Id are incorrect. Try again.');</script>";
             }
-
-            // Closes the connection crested above
-            mysqli_close($con);
+        } elseif (mysqli_fetch_array($query_lec, MYSQLI_ASSOC)) {
+            $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '" . $id . "'");
+            $row_lec = mysqli_fetch_array($query_lec, MYSQLI_ASSOC) or die("Can not receive the data from the database");
+            ;
+            if ($row_lec['password'] == $pwd) {
+                $_SESSION['user'] = $row_lec['lec_id'];
+                echo "Access granted.";
+                // redirecting to the relevant page
+                ?><script>location.replace("lec_home.php");</script><?php
+                exit();
+            } else {
+                echo "<script type='text/javascript'>alert('Password and Id are incorrect. Try again.');</script>";
+            }
+        } elseif (mysqli_fetch_array($query_admin, MYSQLI_ASSOC)) {
+            $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '" . $id . "'");
+            $row_admin = mysqli_fetch_array($query_admin, MYSQLI_ASSOC) or die("Can not receive the data from the database");
+            if ($row_admin['password'] == $pwd) {
+                $_SESSION['user'] = $row_admin['user_name'];
+                echo "Access granted.";
+                // redirecting to the relevant page
+                ?><script>location.replace("admin_home.php");</script><?php
+                exit();
+            } else {
+                echo "<script type='text/javascript'>alert('Password and Id are incorrect. Try again.');</script>";
+            }
+        } else {
+            echo "<script type='text/javascript'>alert('Password and Id are incorrect. Try again.');</script>";
         }
+
+        // Closes the connection crested above
+        mysqli_close($con);
     }
-
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +119,7 @@
 
                         </ol>
 
-                            <!-- Wrapper for slides -->
+                        <!-- Wrapper for slides -->
 
                         <div class="carousel-inner" align="center"  >
                             <div class="item active">
@@ -167,52 +158,49 @@
                         <div class="rightnav">
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><h3>Login<h3></div>
-                                <div class="panel-body">
+                                            <div class="panel-body">
 
 
-                                    <form role="form" method="post">
-                                        <div class="form-group">
-                                            <input type="id" maxlength="7" class="form-control" id="id" placeholder="ID" name="id">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" size="25" maxlength="25" class="form-control" id="pwd" placeholder="Password" name="pwd">
-                                        </div>
-                                        <button type="submit" class="btn btn-default" name="login">
-                                            Login<!--add a image to the button-->
-                                        </button>
-                                    </form>
+                                                <form role="form" method="post">
+                                                    <div class="form-group">
+                                                        <input type="id" maxlength="15" class="form-control" required="required" id="id" placeholder="ID" name="id">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" size="25" maxlength="25" required="required" class="form-control" id="pwd" placeholder="Password" name="pwd">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-default" name="login">
+                                                        Login<!--add a image to the button-->
+                                                    </button>
+                                                </form>
 
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
 
-                </div>
-            </div>
+                                            </div>
+                                            </div>
 
-            <!---->
+                                            <!---->
 
-            <div class="col-sm-4">
-            <?php
-            if(isset($_POST['login'])){
-                //Stores the user entered values in to 2 variables
-                $id = $_POST['id'];
-                $pwd = $_POST['pwd'];
+                                            <div class="col-sm-4">
+                                                <?php
+                                                if (isset($_POST['login'])) {
+                                                    //Stores the user entered values in to 2 variables
+                                                    $id = $_POST['id'];
+                                                    $pwd = $_POST['pwd'];
 
-                //echo crypt($pwd,$id);
+                                                    //echo crypt($pwd,$id);
+                                                    // Calls the getPassword function
+                                                    getPassword($id, $pwd);
 
-                // Calls the getPassword function
-                getPassword($id, $pwd);
-
-                /*
-                 * getPassword($id, crypt($pwd,$id));
-                 */
-
-            }
-
-            ?>
-            </div>
-        </div>
-    </body>
-</html>
+                                                    /*
+                                                     * getPassword($id, crypt($pwd,$id));
+                                                     */
+                                                }
+                                                ?>
+                                            </div>
+                                            </div>
+                                            </body>
+                                            </html>

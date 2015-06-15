@@ -29,14 +29,14 @@ session_start();
 
 
                     <ul class="nav nav-pills navFont ">
-                         <li role="presentation" class="label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                         <li role="presentation" class="active label label-default"><a href="add_admin.php"class="navFont">Admin</a></li>
-                         <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
-                            <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
-                            <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
-                            <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
-                            <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
-                            
+                        <li role="presentation" class="label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                        <li role="presentation" class="active label label-default"><a href="add_admin.php"class="navFont">Admin</a></li>
+                        <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
+                        <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
+                        <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
+                        <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
+                        <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
+
 
 
 

@@ -116,94 +116,94 @@ session_start();
             </div>    
             <div >
                 <aside >
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                
-                            </div>
-                            <div class="panel-body" >
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
 
-                                <div>
-                                                             <table>
-
-                            <tr height="50">
-
-                                <th width="100">Id</th>
-                                <th width="200">Name</th>
-                                <th width="100">Contact Number</th>
-                                <th width="200">Email</th>
-                                <th width="100">Department</th>
-                                <th width="300">Address</th>
-                               
-
-
-
-                            </tr>
-
-                        </table>
-
-
-
-
-
-
-                        <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "moodle";
-
-                        //Create connection
-                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                        //check connection
-                        if (!$conn) {
-
-                            die("Connection failed:" . mysqli_connect_error());
-                        }
-                        $sql = "select * from lecturer,department where department=dept_id";
-
-                        $result = mysqli_query($conn, $sql);
-
-                        if (mysqli_num_rows($result) > 0) {
-
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo'<form role="form" action="delete_row.php" method="post">';
-                                echo '<table><tr>';
-                                echo '<input type="hidden" value="all_lec.php" name="url">';
-                                echo '<input type="hidden" value="lecturer" name="table">';
-                                echo '<input type="hidden" value="lec_id" name="column">';
-                                echo '<input type="hidden" value=' .  $row["lec_id"]  . ' name="value">';
-                                echo'<td width="100">'. $row["lec_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["contact_no"] .'</td><td width="200">' . $row["email"] .'</td><td width="100">' . $row["dept_name"] .'</td><td width="350">' . $row["house_no"] .', ' . $row["Street"] . ', '. $row["city"] . '</td>';
-                                echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
-                            }
-                        } else {
-                            
-                        }
-
-                        mysqli_close($conn);
-                        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        </form>
-
-                                </div>
-
-
-                            </div>
                         </div>
-                    </aside> 
-                
+                        <div class="panel-body" >
+
+                            <div>
+                                <table>
+
+                                    <tr height="50">
+
+                                        <th width="100">Id</th>
+                                        <th width="200">Name</th>
+                                        <th width="100">Contact Number</th>
+                                        <th width="200">Email</th>
+                                        <th width="100">Department</th>
+                                        <th width="300">Address</th>
+
+
+
+
+                                    </tr>
+
+                                </table>
+
+
+
+
+
+
+                                <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "moodle";
+
+                                //Create connection
+                                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                //check connection
+                                if (!$conn) {
+
+                                    die("Connection failed:" . mysqli_connect_error());
+                                }
+                                $sql = "select * from lecturer,department where department=dept_id";
+
+                                $result = mysqli_query($conn, $sql);
+
+                                if (mysqli_num_rows($result) > 0) {
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo'<form role="form" action="delete_row.php" method="post">';
+                                        echo '<table><tr>';
+                                        echo '<input type="hidden" value="all_lec.php" name="url">';
+                                        echo '<input type="hidden" value="lecturer" name="table">';
+                                        echo '<input type="hidden" value="lec_id" name="column">';
+                                        echo '<input type="hidden" value=' . $row["lec_id"] . ' name="value">';
+                                        echo'<td width="100">' . $row["lec_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["contact_no"] . '</td><td width="200">' . $row["email"] . '</td><td width="100">' . $row["dept_name"] . '</td><td width="350">' . $row["house_no"] . ', ' . $row["Street"] . ', ' . $row["city"] . '</td>';
+                                        echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
+                                    }
+                                } else {
+                                    
+                                }
+
+                                mysqli_close($conn);
+                                ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </form>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </aside> 
+
             </div>
 
 
