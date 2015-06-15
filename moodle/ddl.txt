@@ -12,6 +12,17 @@ create table department(
   foreign key (building) references building(id)
 
 );
+create table admin(
+  user_name		varchar(30),
+  name		varchar(50),
+  password		varchar(30),
+  Contact_no		varchar(30),
+  email		varchar(30),
+  status		varchar(30),
+	
+  primary key(user_name)
+
+);
 
 
 create table course(

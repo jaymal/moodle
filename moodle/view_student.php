@@ -126,9 +126,7 @@
     </head>
     <body>
         <div class="container">
-            <?php
-                include 'includes/navbar.php';
-            ?>
+           
 
             <div class="page-header">
                 <p><font size="7">Search students</font></p>

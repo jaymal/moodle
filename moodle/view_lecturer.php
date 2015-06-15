@@ -125,9 +125,7 @@ function showBInfo($message, $result){
 </head>
 <body>
 <div class="container">
-    <?php
-        include 'includes/navbar.php';
-    ?>
+   
 
     <div class="page-header">
         <p><font size="7">Search lecturers</font></p>

@@ -27,7 +27,7 @@ session_start();
 
 
                      <ul class="nav nav-pills navFont ">
-                        <li role="presentation" class="active label label-default"><a href="home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                        <li role="presentation" class="active label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
                         <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
                         <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
                         <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
@@ -46,7 +46,7 @@ session_start();
 
 
             <div class="row">
-                 <div class="col-md-3">
+                 <div class="col-md-4">
                                             <aside>
                                                 <div class="panel panel-primary">
                                                     <div class="panel-heading">
@@ -55,10 +55,10 @@ session_start();
                                                     <div class="panel-body" >
 
                                                         <div><table>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='index.html'"  width="500" value='Student Registration'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='index.html'"  width="500" value='click here'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='index.html'"  width="500" value='click here'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='index.html'"  width="500" value='click here'></td></tr>
+                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='index.html'"  width="500" value='View All Students'></td></tr>
+                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='all_lec.php'"  width="500" value='View All Lecrurers'></td></tr>
+                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
+                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='view_student.php'"  width="500" value='Find Student'></td></tr>
 
                                                             </table>
                                                             
@@ -69,7 +69,7 @@ session_start();
                                                 </div>
                                             </aside>
                                         </div>
-                <div class="col-md-9">
+                <div class="col-md-8">
 
 
                     <div id="slide"  class="carousel slide" >
