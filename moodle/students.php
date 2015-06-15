@@ -94,29 +94,37 @@ if (strcmp($_SESSION["access"], "student") != 0) {
                 <div class="col-md-4   ">
                     <div class="rightnav">
                         <div class="panel panel-primary">
-                            <div class="panel-heading"><h3><h3></div>
+                            <div class="panel-heading"><h3>Notice<h3></div>
                                         <div class="panel-body">
-                                            <p> Student enrolment open now!</p> 
+                                            <p> <ul>
+                <li >You are allowed to enroll for a maximum of 20 credits in a given term</li>
+                 <li>The class size for any course module 40 students max.</li>
+                  
+                
+            </ul></p> 
                                         </div>
                                         </div>
                                         </div>
                                         </div>
                                         </div>    
-
+            <br>
 
 
                                         <aside>
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h1>Student Enrolment</h1>
+                                                    <h1>Welcome to moodle</h1>
                                                     <br>
-                                                    <p>Courses Available</p></div>
+                                                    <p>for your info</p></div>
                                                 <div class="panel-body">
 
 
                                                     <div>
 
-                                                     
+                                                     <h5>Now auto course creation is available with the new Moodle. 
+    When the course module is offered it will be automatically created in new Moodle. 
+    So there is no need to create any course module manually. If you have any problem regarding moodle, contact moodle admins
+</h5>
                                                         </div>
                                                     </div>
 
