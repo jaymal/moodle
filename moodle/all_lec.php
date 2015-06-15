@@ -55,8 +55,8 @@ session_start();
                             <div class="panel-body" >
 
                                 <div><table>
-                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'index.html'"  width="500" value='View All Students'></td></tr>
-                                        <tr height="80"><td width="300"> <input class="btn btn-danger" type=button  onClick="location.href = 'index.html'"  width="500" value='View All Lecrurers'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_students.php'"  width="500" value='View All Students'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-danger" type=button  onClick="location.href = '#'"  width="500" value='View All Lecrurers'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_student.php'"  width="500" value='Find Student'></td></tr>
 

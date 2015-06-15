@@ -29,7 +29,8 @@ session_start();
                     <ul class="nav nav-pills navFont ">
 
                         <ul class="nav nav-pills navFont ">
-                            <li role="presentation" class="active label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                            <li role="presentation" class=" label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                            <li role="presentation" class="active label label-default"><a href="add_admin.php"class="navFont">Admin</a></li>
                             <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
                             <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
                             <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
@@ -64,7 +65,7 @@ session_start();
 
                         <div>
 
-                            <form role="form" action="dept_reg_entry.php" method="post">
+                            <form role="form" action="add_admin_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
                                         <td>Name:</td><td> <input type="text" name="name"></td>
@@ -73,42 +74,24 @@ session_start();
                                         <td>Contact No: </td><td><input type="text" name="number"></td>
                                     </tr>
                                      <tr height="50">                                                            
-                                        <td>Contact No: </td><td><input type="text" name="number"></td>
+                                        <td>Email: </td><td><input type="text" name="mail"></td>
+                                    </tr>
+                                     <tr height="50">                                                            
+                                        <td>User Name: </td><td><input type="text" name="user"></td>
+                                    </tr>
+                                     <tr height="50">                                                            
+                                         <td>Password: </td><td><input type="password" name="pw"></td>
                                     </tr>
                                     <!---->
                                     <tr height="50">
-                                        <td>Building:</td>
+                                        <td>Account Type:</td>
                                         <td>
-                                            <select name="building">
+                                           
+                                            <select name="status">
+                                                 <option value="power">Power User</option>
+                                                 <option value="normal">User</option>
 
-
-                                                <?php
-                                                $servername = "localhost";
-                                                $username = "root";
-                                                $password = "";
-                                                $dbname = "moodle";
-
-                                                //Create connection
-                                                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                                //check connection
-                                                if (!$conn) {
-
-                                                    die("Connection failed:" . mysqli_connect_error());
-                                                }
-                                                $sql = "SELECT status FROM building where user_name=" . $_SESSION['user'] . " ";
-                                                $result = mysqli_query($conn, $sql);
-
-                                                if (mysqli_num_rows($result) > 0) {
-                                                    if (mysqli_num_rows($result) > 0) {
-                                                        while ( strcmp($row["id"],"power")) {
-                                                            echo' <option value="' . $row["id"] . '">' . $row["name"] . '</option>';
-                                                        }
-                                                    }
-                                                } else {
-                                                    echo "0 results";
-                                                }
-                                                mysqli_close($conn);
-                                                ?>
+                                                
                                             </select>
 
                                         </td>
@@ -133,7 +116,7 @@ session_start();
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1>Departments</h1>
+                    <h1>Admin</h1>
                     <br>
                 </div>
                 <div class="panel-body">
@@ -162,19 +145,24 @@ session_start();
 
 
                         <?php
-                        $servername = "localhost";
+                         $servername = "localhost";
                         $username = "root";
                         $password = "";
                         $dbname = "moodle";
-
-                        //Create connection
-                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                        //check connection
-                        if (!$conn) {
+                         $conn = mysqli_connect($servername, $username, $password, $dbname);
+                         if (!$conn) {
 
                             die("Connection failed:" . mysqli_connect_error());
                         }
-                        $sql = "select * from department,building where department.building=building.id";
+                        $sql = "select status from admin where user_name='".$_SESSION["user"]."'";
+                        $result = mysqli_query($conn, $sql);
+                        if () {
+                       
+
+                        //Create connection
+                       // $conn = mysqli_connect($servername, $username, $password, $dbname);
+                       
+                        $sql = "select * from admin";
 
                         $result = mysqli_query($conn, $sql);
 
@@ -195,6 +183,7 @@ session_start();
                         }
 
                         mysqli_close($conn);
+                        }
                         ?>
 
 

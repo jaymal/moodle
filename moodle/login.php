@@ -30,6 +30,9 @@
             // The query to get the data from the database
             $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '".$id."'");
 
+            // The query to get the data from the database
+            $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '".$id."'");
+
             /*
              * Checks whether the 'password' index of the returned array is non-empty and
              * whether it is similar to the password entered by the user
@@ -38,10 +41,10 @@
                 $query_st = mysqli_query($con, "SELECT student.password,student.st_id FROM student WHERE student.st_id = '".$id."'");
                 $row_st = mysqli_fetch_array($query_st, MYSQLI_ASSOC) or die("Can not receive the data from the database");
                 if($row_st['password'] == $pwd){
-                    $_SESSION['st_id'] = $row_st['st_id'];
+                    $_SESSION['user'] = $row_st['st_id'];
                     echo "Access granted.";
                     // redirecting to the relevant page
-                    ?><script>location.replace("index.php");</script><?php
+                    ?><script>location.replace("students.php");</script><?php
                     exit();
                 }
                 else{
@@ -52,16 +55,31 @@
                 $query_lec = mysqli_query($con, "SELECT lecturer.password,lecturer.lec_id FROM lecturer WHERE lecturer.lec_id = '".$id."'");
                 $row_lec = mysqli_fetch_array($query_lec, MYSQLI_ASSOC) or die("Can not receive the data from the database");;
                 if($row_lec['password'] == $pwd){
-                    $_SESSION['lec_id'] = $row_lec['lec_id'];
+                    $_SESSION['user'] = $row_lec['lec_id'];
                     echo "Access granted.";
                     // redirecting to the relevant page
-                    ?><script>location.replace("view_lecturer.php");</script><?php
+                    ?><script>location.replace("lec_home.php");</script><?php
                     exit();
                 }
                 else{
                     echo 'Invalid username and password';
                 }
             }
+            elseif(mysqli_fetch_array($query_admin, MYSQLI_ASSOC)){
+                $query_admin = mysqli_query($con, "SELECT admin.password,admin.user_name FROM admin WHERE admin.user_name = '".$id."'");
+                $row_admin = mysqli_fetch_array($query_admin, MYSQLI_ASSOC) or die("Can not receive the data from the database");
+                if($row_admin['password'] == $pwd){
+                    $_SESSION['user'] = $row_admin['user_name'];
+                    echo "Access granted.";
+                    // redirecting to the relevant page
+                    ?><script>location.replace("admin_home.php");</script><?php
+                    exit();
+                }
+                else{
+                    echo 'Invalid username and password';
+                }
+            }
+
             else{
                 echo "<script type='text/javascript'>alert('Password and Id are incorrect. Try again.');</script>";
             }
