@@ -27,8 +27,19 @@ session_start();
 
 
                     <ul class="nav nav-pills navFont ">
-                       
 
+                        <ul class="nav nav-pills navFont ">
+                            <li role="presentation" class="active label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                            <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
+                            <li role="presentation" class="label label-default"><a href="lecturer_reg.php" class="navFont">Lecturer</a></li>
+                            <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
+                            <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
+                            <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
+
+
+
+
+                        </ul>
 
                     </ul>
             </div>
@@ -45,7 +56,7 @@ session_start();
             <aside>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Add New Department</h1>
+                        <h1>Add New Admin</h1>
                         <br>
                     </div>
                     <div class="panel-body">
@@ -81,13 +92,14 @@ session_start();
 
                                                     die("Connection failed:" . mysqli_connect_error());
                                                 }
-                                                $sql = "SELECT * FROM building";
+                                                $sql = "SELECT status FROM building where user_name=" . $_SESSION['user'] . " ";
                                                 $result = mysqli_query($conn, $sql);
 
                                                 if (mysqli_num_rows($result) > 0) {
-
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo' <option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+                                                    if (mysqli_num_rows($result) > 0) {
+                                                        while ( strcmp($row["id"],"power")) {
+                                                            echo' <option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+                                                        }
                                                     }
                                                 } else {
                                                     echo "0 results";
@@ -102,7 +114,7 @@ session_start();
 
                                 </table>
 
-                                <input type="submit" value="submit" class="floatright">
+                                <input type="submit" value="Add" class="floatright">
 
                             </form>
 
@@ -133,7 +145,7 @@ session_start();
                                 <th width="200">Id</th>
                                 <th width="200">Name</th>
                                 <th width="200">Building</th>
-                               
+
 
 
 
@@ -171,8 +183,8 @@ session_start();
                                 echo '<input type="hidden" value="dept_entry.php" name="url">';
                                 echo '<input type="hidden" value="department" name="table">';
                                 echo '<input type="hidden" value="dept_id" name="column">';
-                                echo '<input type="hidden" value=' .  $row["dept_id"]  . ' name="value">';
-                                echo'<td width="200">'. $row["dept_id"] . '</td><td width="200">' . $row["dept_name"] . '</td><td width="200">' . $row["name"] . '</td>';
+                                echo '<input type="hidden" value=' . $row["dept_id"] . ' name="value">';
+                                echo'<td width="200">' . $row["dept_id"] . '</td><td width="200">' . $row["dept_name"] . '</td><td width="200">' . $row["name"] . '</td>';
                                 echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
                             }
                         } else {

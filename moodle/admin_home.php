@@ -50,7 +50,7 @@ session_start();
                                             <aside>
                                                 <div class="panel panel-primary">
                                                     <div class="panel-heading">
-                                                        <h1>Lecturer Info</h1>
+                                                        <h1>Admin</h1>
                                                     </div>
                                                     <div class="panel-body" >
 
