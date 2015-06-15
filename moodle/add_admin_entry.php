@@ -82,7 +82,7 @@ session_start();
                                     echo 'connecting to database failed';
                                 }
 
-                                $sql = "INSERT INTO admin values('" . $_POST['user'] . "','" . $_POST['name'] . "','" . $_POST['pw'] . "','" . $_POST['number'] . "','" . $_POST['mail'] . "','" . $_POST['status'] . "')";
+                                $sql = "INSERT INTO admin values('" . $_POST['user'] . "','" . $_POST['name'] . "','" .crypt($_POST['pw'], $_POST['user'] )  . "','" . $_POST['number'] . "','" . $_POST['mail'] . "','" . $_POST['status'] . "')";
 
                                 if ($con->query($sql) === TRUE) {
                                     echo 'admin was added successfully in to the system';
