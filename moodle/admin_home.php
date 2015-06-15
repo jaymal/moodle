@@ -29,7 +29,7 @@ if (strcmp($_SESSION["access"], "admin") != 0) {
                 <nav class="nav nav-tabs nav-justified ">
 
 
-                     <ul class="nav nav-pills navFont ">
+                    <ul class="nav nav-pills navFont ">
                         <li role="presentation" class="active label label-default"><a href="admin_home.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
                         <li role="presentation" class="label label-default"><a href="add_admin.php"class="navFont">Admin</a></li>
                         <li role="presentation" class="label label-default"><a href="student_reg.php" class="navFont">Student</a></li>
@@ -37,7 +37,7 @@ if (strcmp($_SESSION["access"], "admin") != 0) {
                         <li role="presentation" class="label label-default"><a href="course.php"class="navFont">Course</a></li>
                         <li role="presentation" class="label label-default"><a href="dept_entry.php"class="navFont">Department</a></li>
                         <li role="presentation" class="label label-default"><a href="building_reg.php"class="navFont">Building</a></li>
-                        
+
 
 
 
@@ -50,29 +50,30 @@ if (strcmp($_SESSION["access"], "admin") != 0) {
 
 
             <div class="row">
-                 <div class="col-md-4">
-                                            <aside>
-                                                <div class="panel panel-primary">
-                                                    <div class="panel-heading">
-                                                        <h1>Admin</h1>
-                                                    </div>
-                                                    <div class="panel-body" >
+                <div class="col-md-4">
+                    <aside>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h1>Admin</h1>
+                            </div>
+                            <div class="panel-body" >
 
-                                                        <div><table>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='view_all_students.php'"  width="500" value='View All Students'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='all_lec.php'"  width="500" value='View All Lecrurers'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
-                                                           <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href='view_student.php'"  width="500" value='Find Student'></td></tr>
+                                <div><table>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_courses.php'"  width="500" value='View All Courses'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_students.php'"  width="500" value='View All Students'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'all_lec.php'"  width="500" value='View All Lecrurers'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_student.php'"  width="500" value='Find Student'></td></tr>
 
-                                                            </table>
-                                                            
-                                                        </div>
+                                    </table>
+
+                                </div>
 
 
-                                                    </div>
-                                                </div>
-                                            </aside>
-                                        </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
                 <div class="col-md-8">
 
 
@@ -116,18 +117,18 @@ if (strcmp($_SESSION["access"], "admin") != 0) {
                     </div>
                 </div>
 
-               
-                                        </div>    
+
+            </div>    
 
 
-                                        <div class="row">
-                                           
-                                            </div>
+            <div class="row">
+
+            </div>
 
 
-                                        </div>
-                                        </body>
+        </div>
+    </body>
 
-                                        </html>
+</html>
 
 
