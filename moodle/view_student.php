@@ -99,7 +99,7 @@
 
                         echo '<br>Index no   : '.$row['st_id'].'
                               <br>Name       : '.$row['name'].'
-                              <br>Department : '.$row['department'].'
+                              <br>Department : '.$row['dept_id'].'
                               <br>Contact no.: '.$row['contact_no'].'
                               <br>NIC        : '.$row['nic'].'
                               <br>';

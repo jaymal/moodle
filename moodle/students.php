@@ -29,7 +29,7 @@ session_start();
                     <ul class="nav nav-pills navFont ">
                         <li role="presentation" class="active label label-default"><a href="students.php"class="navFont"><span class="glyphicon glyphicon-home"> Home</span></a></li>
                         <li role="presentation" class="label label-default"><a href="course_enrolment.php" class="navFont">Enrolment</a></li>
-                        <li role="presentation" class="label label-default"><a href="view_student.php" class="navFont">Profile</a></li>                        
+                        <li role="presentation" class="label label-default"><a href="std_profile.php" class="navFont">Profile</a></li>                        
                         <li role="presentation" class="label label-default"><a href="#"class="navFont">Contacts</a></li>
 
 

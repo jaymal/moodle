@@ -56,7 +56,7 @@ session_start();
                             <div class="panel-body" >
 
                                 <div><table>
-                                         <tr height="80"><td width="300"> <input class="btn btn-primary" type=button  onClick="location.href = 'view_all_courses.php'"  width="500" value='View All Courses'></td></tr>
+                                        <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_courses.php'"  width="500" value='View All Courses'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_all_students.php'"  width="500" value='View All Students'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'all_lec.php'"  width="500" value='View All Lecrurers'></td></tr>
                                         <tr height="80"><td width="300"> <input class="btn btn-info" type=button  onClick="location.href = 'view_lecturer.php'"  width="500" value='Find Lecturer'></td></tr>
@@ -132,7 +132,7 @@ session_start();
                                         <th width="100">Id</th>
                                         <th width="200">Name</th>
                                         <th width="100">Credits</th>
-                                        
+
 
 
 
@@ -172,7 +172,7 @@ session_start();
                                         echo '<input type="hidden" value="course" name="table">';
                                         echo '<input type="hidden" value="course_id" name="column">';
                                         echo '<input type="hidden" value=' . $row["course_id"] . ' name="value">';
-                                        echo'<td width="100">' . $row["course_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["credit"] .'</td>';
+                                        echo'<td width="100">' . $row["course_id"] . '</td><td width="200">' . $row["name"] . '</td><td width="100">' . $row["credit"] . '</td>';
                                         echo '<td><input type="submit" value="Remove" ></td></tr></table></form>';
                                     }
                                 } else {
