@@ -67,10 +67,13 @@ session_start();
                             <form role="form" action="dept_reg_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Department ID:</td><td> <input type="text" name="id"></td>
+                                        <td>Name:</td><td> <input type="text" name="name"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Contact No: </td><td><input type="text" name="number"></td>
+                                    </tr>
+                                     <tr height="50">                                                            
+                                        <td>Contact No: </td><td><input type="text" name="number"></td>
                                     </tr>
                                     <!---->
                                     <tr height="50">
