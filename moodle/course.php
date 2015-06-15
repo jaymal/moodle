@@ -63,14 +63,14 @@ session_start();
                             <form role="form" action="course_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td> Course ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Course ID:</td><td> <input type="text" maxlength="6"  required="required" placeholder="eg:cs2032" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Name: </td><td><input type="text" name="name"></td>
+                                        <td>Name: </td><td><input type="text" maxlength="35"  required="required" placeholder="eg:Database Systems" name="name"></td>
                                     </tr>
                                     <tr height="50">
 
-                                        <td>Credit:</td><td> <input type="text" name="credit"></td>
+                                        <td>Credit:</td><td> <input type="text" maxlength="3"  required="required" placeholder="eg:3.5" name="credit"></td>
                                     </tr>
                                     
                                     <tr height="50">

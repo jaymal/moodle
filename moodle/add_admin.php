@@ -68,19 +68,19 @@ session_start();
                             <form role="form" action="add_admin_entry.php" method="post">
                                 <table width="400">
                                     <tr height="50"> 
-                                        <td>Name:</td><td> <input type="text" name="name"></td>
+                                        <td>Name:</td><td> <input type="text" maxlength="50"  required="required"  placeholder="eg:Chamath Hasaranga" name="name"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Contact No: </td><td><input type="text" name="number"></td>
+                                        <td>Contact No: </td><td><input type="text" maxlength="10"  required="required" placeholder="eg:0713182006" name="number"></td>
                                     </tr>
                                      <tr height="50">                                                            
-                                        <td>Email: </td><td><input type="text" name="mail"></td>
+                                        <td>Email: </td><td><input type="email" maxlength="50"  required="required"  placeholder="eg:Chamath@gmail.com" name="mail"></td>
                                     </tr>
                                      <tr height="50">                                                            
-                                        <td>User Name: </td><td><input type="text" name="user"></td>
+                                        <td>User Name: </td><td><input type="text" maxlength="30"  required="required"  placeholder="eg:Chamath91" name="user"></td>
                                     </tr>
                                      <tr height="50">                                                            
-                                         <td>Password: </td><td><input type="password" name="pw"></td>
+                                         <td>Password: </td><td><input type="password" maxlength="20"  required="required"  placeholder="password" name="pw"></td>
                                     </tr>
                                     <!---->
                                     <tr height="50">

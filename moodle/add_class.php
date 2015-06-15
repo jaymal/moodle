@@ -134,13 +134,13 @@ session_start();
                                         </td>
                                     </tr>
                                      <tr height="50"> 
-                                        <td> Class ID:</td><td> <input type="text" name="id"></td>
+                                        <td> Class ID:</td><td> <input type="text" maxlength="4"  required="required"  placeholder="eg:3128" name="id"></td>
                                     </tr>
                                     <tr height="50">                                                            
-                                        <td>Date: </td><td><input type="date" name="date"></td>
+                                        <td>Date: </td><td><input type="date" required="required"  placeholder="yyyy/mm/dd" name="date"></td>
                                         <tr height="50">
 
-                                            <td>Time:</td><td> <input type="time"  name="time"></td>
+                                            <td>Time:</td><td> <input type="time" required="required"  placeholder="eg:1.15pm" name="time"></td>
                                     </tr>
                                     </tr>
 
